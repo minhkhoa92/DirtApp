@@ -1,0 +1,19 @@
+*.iml
+.gradle
+
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+
+#minh 2018-04-02: I do not install Windows batch files for Linux users
+gradlew.bat
+
+#minh 2018-04-02: I wonder if there is a better solution to the changing IDE version
+# until then: Sometimes no IDE information, sometimes with IDE information
+.idea/misc.xml
+.idea/modules.xml
+.idea/runConfigurations.xml
