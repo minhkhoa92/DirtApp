@@ -14,29 +14,15 @@ import android.content.Context
 
 class MainActivity : AppCompatActivity() {
 
+    var surfaceV: PrivateSurfaceV? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.in_and_awesome)
 
-        val activityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-        val configurationInfo = activityManager.deviceConfigurationInfo
-        val supportsEs2 = configurationInfo.reqGlEsVersion >= 0x20000
-        val supportsEs3 = configurationInfo.reqGlEsVersion >= 0x30000
+        surfaceV = PrivateSurfaceV(this)
+        setContentView(surfaceV)
 
-        val info = configurationInfo.reqGlEsVersion.toString(16)
 
-        // Example of a call to a native method
-        sample_text.text = stringFromJNI()
-
-        if (supportsEs3) {
-            hackySolution.text = "es3 is supported"
-            replaceHackySol2(info)
-        } else if (supportsEs2) {
-            hackySolution.text = "es2 is supported"
-            replaceHackySol2(info)
-        } else {
-            hackySolution.text = "es2 is not supported"
-        }
     }
 
     private fun replaceHackySol2(someString : String) {
